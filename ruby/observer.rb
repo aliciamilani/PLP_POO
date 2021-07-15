@@ -61,27 +61,19 @@ class Observer
   end
 end
 
-class ConcreteObserverA < Observer
+class ConcreteObserver < Observer
   # @param [Subject] subject
   def update(subject)
-    puts 'ConcreteObserverA: Reacted to the event'
+    puts 'ConcreteObserver: Reacted to the event'
   end
 end
-
-class ConcreteObserverB < Observer
-  # @param [Subject] subject
-  def update(subject)
-    puts 'ConcreteObserverB: Reacted to the event'
-  end
-end
-
 
 subject = WeatherData.new
 
-observer_a = ConcreteObserverA.new
+observer_a = ConcreteObserver.new
 subject.attach(observer_a)
 
-observer_b = ConcreteObserverB.new
+observer_b = ConcreteObserver.new
 subject.attach(observer_b)
 
 subject.change_measures(1, 2, 3)
